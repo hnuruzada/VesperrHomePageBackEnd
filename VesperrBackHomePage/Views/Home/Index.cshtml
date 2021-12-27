@@ -1,0 +1,463 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- ======= Hero Section +++======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        @foreach (GetStarted getstarted in Model.GetStarteds)
+       {
+           <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">@getstarted.Title</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">@getstarted.Description</h2>
+          <div data-aos="fade-up" data-aos-delay="800">
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="assets/img/@getstarted.Image" class="img-fluid animated" alt="">
+        </div>
+       }
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+<main id="main">
+
+    <!-- ======= Clients Section +++======= -->
+    <section id="clients" class="clients clients">
+      <div class="container">
+
+        <div class="row">
+
+          @foreach (Client client in Model.Clients)
+         {
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="~/assets/img/clients/@client.Png" class="img-fluid" alt="" data-aos="zoom-in">
+          </div>   
+         }
+
+          
+
+        
+
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+
+    <!-- ======= About Us Section +++======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              @foreach (AboutUs aboutUs in Model.AboutUs)
+             {
+                 <li><i class="@aboutUs.Icon"></i>@aboutUs.Description</li>
+             }
+             
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Counts Section +++======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start" data-aos="fade-right" data-aos-delay="150">
+            <img src="~/assets/img/counts-img.svg" alt="" class="img-fluid">
+          </div>
+
+          <div class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0" data-aos="fade-left" data-aos-delay="300">
+            <div class="content d-flex flex-column justify-content-center">
+              <div class="row">
+                @foreach (Count count in Model.Counts)
+               {
+                   <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="@count.Icon"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="@count.Number" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>@count.Title</strong> @count.Desc</p>
+                  </div>
+                </div>
+               }
+
+              
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Services Section +++======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Services</h2>
+          <p>Magnam dolores commodi suscipit eius consequatur ex aliquid fug</p>
+        </div>
+
+        <div class="row">
+          @foreach (Service service in Model.Services)
+         {
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="@service.Icon"></i></div>
+              <h4 class="title"><a href="">@service.Title</a></h4>
+              <p class="description">@service.Desc</p>
+            </div>
+          </div>
+   
+         }
+         
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= More Services Section +++======= -->
+    <section id="more-services" class="more-services">
+      <div class="container">
+
+        <div class="row">
+         @foreach (MoreService moreService in Model.MoreServices)
+         {
+              <div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card" style='background-image: url("assets/img/@moreService.Image");' data-aos="fade-up" data-aos-delay="@moreService.Delay">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">@moreService.Title</a></h5>
+                <p class="card-text">@moreService.Desc</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+          </div>
+             
+         }
+         
+        </div>
+
+      </div>
+    </section><!-- End More Services Section -->
+
+    <!-- ======= Features Section +++======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Features</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="300">
+             @foreach (Feature feature in Model.Features)
+         {
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="@feature.Icon" style="color: @feature.Color;"></i>
+              <h3><a href="">@feature.Title</a></h3>
+            </div>
+          </div>   
+         }
+          
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Testimonials Section +++======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Testimonials</h2>
+          <p>Magnam dolores commodi suscipit eum quidem consectetur velit</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            @foreach (Testimonial testimonial in Model.Testimonials)
+           {
+               <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="~/assets/img/testimonials/@testimonial.Image" class="testimonial-img" alt="">
+                  <h3>@testimonial.Name @testimonial.Surname</h3>
+                  <h4>@testimonial.Position</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    @testimonial.Info
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+           }
+
+            
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Portfolio Section +++ ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Portfolio</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+               @foreach (var category in Model.Categories)
+                        {
+                            <li data-filter=".filter-@category.Name.ToLower()">@category.Name</li>
+                        }
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
+
+           @foreach (var category in Model.Categories)
+                {
+                    @foreach (var CardCategory in category.CardCategories)
+                    {
+
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-@category.Name.ToLower()">
+                                <div class="portfolio-wrap">
+                                    <img src="~/assets/img/portfolio/@CardCategory.Card.Image" class="img-fluid" alt="">
+                                    <div class="portfolio-info">
+                                        <h4>@CardCategory.Card.Name</h4>
+                                        <p>@category.Name</p>
+                                        <div class="portfolio-links">
+                                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       }
+                    }
+
+          
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Team Section +++======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+        </div>
+
+        <div class="row">
+
+          @foreach (Employee employe in Model.Employees)
+         {
+             <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="~/assets/img/team/@employe.Image" class="img-fluid" alt="">
+                <div class="social">
+                  @foreach ( Social social in employe.Socials)
+                 {
+                     <a href=""><i class="@social.Icon"></i></a>
+                 }
+                  
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>@employe.Name @employe.Surname</h4>
+                <span>@employe.Position</span>
+              </div>
+            </div>
+          </div>
+         }
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Pricing</h2>
+          <p>Sit sint consectetur velit nemo qui impedit suscipit alias ea</p>
+        </div>
+
+        <div class="row">
+
+          @foreach (PricingCategory pricingCategory in Model.PricingCategories)
+         {
+             <div class="col-lg-4 col-md-6">
+            <div class="box" data-aos="zoom-in-right" data-aos-delay="200">
+              <h3>@pricingCategory.Title</h3>
+              <h4><sup>$</sup>@pricingCategory.Price<span> / month</span></h4>
+              <ul>
+                @foreach (PricingInfo pricingInfo in pricingCategory.PricingInfos)
+                                {
+                                  <li>@pricingInfo.Desc</li>
+                                 
+                                }
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+         }
+
+         
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= F.A.Q Section +++======= -->
+    <section id="faq" class="faq">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        
+        @foreach (Question question in Model.Questions)
+            {
+                
+
+
+           <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="@question.Delay">
+          <div class="col-lg-5">
+            <i class="@question.Icon"></i>
+            <h4>@question.Inquiries</h4>
+          </div>
+          <div class="col-lg-7">
+            <p>@question.Answer</p>
+          </div>
+        </div><!-- End F.A.Q Item-->
+       }
+      </div>
+    </section><!-- End F.A.Q Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-about">
+              <h3>Vesperr</h3>
+              <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+              <div class="social-links">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="info">
+              <div>
+                <i class="ri-map-pin-line"></i>
+                <p>A108 Adam Street<br>New York, NY 535022</p>
+              </div>
+
+              <div>
+                <i class="ri-mail-send-line"></i>
+                <p>info@example.com</p>
+              </div>
+
+              <div>
+                <i class="ri-phone-line"></i>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+

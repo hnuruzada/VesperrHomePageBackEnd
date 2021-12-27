@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211226211225_createdEmployeeandSocialTable.cs" />
+    <Compile Remove="Migrations\20211226211225_createdEmployeeandSocialTable.Designer.cs" />
+    <Compile Remove="Migrations\20211227075743_da.cs" />
+    <Compile Remove="Migrations\20211227075743_da.Designer.cs" />
+    <Compile Remove="Migrations\20211227075810_createdAboutUsTabl.cs" />
+    <Compile Remove="Migrations\20211227075810_createdAboutUsTabl.Designer.cs" />
+    <Compile Remove="Migrations\20211227075906_createdAboutUsTable.cs" />
+    <Compile Remove="Migrations\20211227075906_createdAboutUsTable.Designer.cs" />
+    <Compile Remove="Migrations\20211227194029_createdPricingCategoryInfoTable.cs" />
+    <Compile Remove="Migrations\20211227194029_createdPricingCategoryInfoTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+</Project>
